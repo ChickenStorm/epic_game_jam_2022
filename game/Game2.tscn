@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Game.gd" type="Script" id=2]
 [ext_resource path="res://src/debug/debug.gd" type="Script" id=3]
-[ext_resource path="res://assets/texture/prototype/Dark/texture_13.png" type="Texture" id=4]
 [ext_resource path="res://assets/texture/prototype/Orange/texture_01.png" type="Texture" id=5]
 [ext_resource path="res://game/pnj/pnj.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/dialogue_hud.gd" type="Script" id=7]
@@ -13,11 +12,26 @@ extents = Vector3( 5, 5, 1 )
 
 [sub_resource type="CubeMesh" id=9]
 
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.05
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+next_pass = SubResource( 4 )
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 0.611765, 0.34902, 0.117647, 1 )
+metallic_specular = 0.0
+roughness = 0.1
+
+[sub_resource type="PrismMesh" id=11]
+
 [sub_resource type="SpatialMaterial" id=10]
 albedo_texture = ExtResource( 5 )
 uv1_triplanar = true
-
-[sub_resource type="PrismMesh" id=11]
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 50, 1, 50 )
@@ -25,8 +39,14 @@ extents = Vector3( 50, 1, 50 )
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 100, 2, 100 )
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_texture = ExtResource( 4 )
+[sub_resource type="SpatialMaterial" id=15]
+next_pass = SubResource( 4 )
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 0.47451, 0.47451, 0.47451, 1 )
+metallic_specular = 0.0
+roughness = 0.1
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
 [sub_resource type="CubeMesh" id=5]
@@ -34,7 +54,13 @@ uv1_triplanar = true
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0, 0.368627, 1, 1 )
 
+[sub_resource type="PanoramaSky" id=14]
+
 [sub_resource type="Environment" id=7]
+background_mode = 1
+background_sky = SubResource( 14 )
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="Game3D" type="Node"]
 script = ExtResource( 2 )
@@ -50,7 +76,7 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="playground/StaticBody/CollisionShape"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 12 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="playground/StaticBody"]
 transform = Transform( 2.85943, 0, 0, 0, 1, 0, 0, 0, 2.85943, -7.68762, -2.5131, -12.2586 )
@@ -59,7 +85,7 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="playground/StaticBody/CollisionShape4"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0101297, 0, 0 )
 mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 12 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="playground/StaticBody"]
 transform = Transform( 2.85943, 0, 0, 0, 1, 0, 0, 0, 2.85943, -7.68762, -0.717927, -16.7472 )
@@ -68,7 +94,7 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="playground/StaticBody/CollisionShape5"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 12 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="playground/StaticBody"]
 transform = Transform( 0.723534, 0.690289, 0, -0.690289, 0.723534, 0, 0, 0, 1, 11.3847, 0, 0 )
@@ -77,7 +103,7 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="playground/StaticBody/CollisionShape3"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 12 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="playground/StaticBody"]
 transform = Transform( 0.898488, 0.438999, 0, -0.438999, 0.898488, 0, 0, 0, 1, 11.3847, 0, 3.17301 )
@@ -86,7 +112,7 @@ shape = SubResource( 8 )
 [node name="MeshInstance" type="MeshInstance" parent="playground/StaticBody/CollisionShape2"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 12 )
 
 [node name="UpWorldObj" type="MeshInstance" parent="playground" groups=["UpWorld"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65978, 1.22612, -3.56136 )
@@ -113,7 +139,7 @@ shape = SubResource( 2 )
 [node name="Floor" type="MeshInstance" parent="World/FloorCollision"]
 mesh = SubResource( 3 )
 skeleton = NodePath("../../..")
-material/0 = SubResource( 4 )
+material/0 = SubResource( 15 )
 
 [node name="MeshInstance" type="MeshInstance" parent="World/FloorCollision/Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.577711, 0 )

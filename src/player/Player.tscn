@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/main/StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://src/player/State/Move.gd" type="Script" id=2]
@@ -8,19 +8,6 @@
 [ext_resource path="res://src/player/State/Air.gd" type="Script" id=6]
 [ext_resource path="res://src/player/State/Walk.gd" type="Script" id=7]
 [ext_resource path="res://src/player/State/Run.gd" type="Script" id=8]
-
-[sub_resource type="CapsuleMesh" id=1]
-radius = 0.5
-mid_height = 2.0
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 0.2, 1, 0.2 )
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
@@ -35,14 +22,7 @@ script = ExtResource( 4 )
 
 [node name="body" type="MeshInstance" parent="Mannequiny"]
 transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 1.5, 0 )
-mesh = SubResource( 1 )
 skeleton = NodePath("../..")
-material/0 = SubResource( 4 )
-
-[node name="head" type="MeshInstance" parent="Mannequiny/body"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.643283, -1.30398 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0 )
