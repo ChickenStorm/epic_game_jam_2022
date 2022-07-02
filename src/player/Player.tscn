@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/main/StateMachine/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://src/player/State/Move.gd" type="Script" id=2]
@@ -9,12 +9,20 @@
 [ext_resource path="res://src/player/State/Walk.gd" type="Script" id=7]
 [ext_resource path="res://src/player/State/Run.gd" type="Script" id=8]
 
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/Cat_Front.png-6bf08aa511c7c5e3ca9d2d655f2064e7.stex"
+
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.5
 height = 2.0
 
 [node name="Player" type="KinematicBody" groups=["player"]]
 script = ExtResource( 5 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.34641, 0, 0.2, 0, 0.4, 0, -0.2, 0, 0.34641, 0, 1.42589, 0 )
+texture = SubResource( 3 )
 
 [node name="Mannequiny" type="Spatial" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0 )

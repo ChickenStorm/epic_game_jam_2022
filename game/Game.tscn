@@ -24,7 +24,7 @@ uv1_triplanar = true
 
 [sub_resource type="StreamTexture" id=23]
 flags = 4
-load_path = "res://.import/Monkey.png-56efaad598c15f608c58bdc2b0bfb166.stex"
+load_path = "res://.import/Monkey_grain.png-ff0ecae3ed5908f1bb5d962a84864d39.stex"
 
 [sub_resource type="BoxShape" id=13]
 
