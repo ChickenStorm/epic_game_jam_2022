@@ -48,6 +48,7 @@ func set_up_world(new_bool):
 		for node in get_tree().get_nodes_in_group("DownWorld"):
 			node.visible = true
 	 # TODO call a method on each ellement, might be to heavy ?
+	get_tree().call_group("world_change", "world_change", up_world)
 
 
 func pickup(object_name):
