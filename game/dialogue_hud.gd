@@ -47,6 +47,7 @@ func show_dialoge(string, choice_text, pnj):
 func next_dialoge():
 	self.visible = false
 	show_dialoge = false
+	_target_pnj.lock_player_control(false)
 	for node in choice.get_children():
 		node.queue_free()
 	_target_pnj.call_back(choice_index)

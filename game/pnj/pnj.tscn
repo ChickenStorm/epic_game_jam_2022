@@ -13,6 +13,7 @@ uv1_triplanar = true
 
 [sub_resource type="CylinderShape" id=2]
 radius = 8.0
+height = 3.37593
 
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
@@ -36,6 +37,7 @@ collision_layer = 0
 collision_mask = 9
 
 [node name="CollisionShape" type="CollisionShape" parent="DialogueCollisonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.632343, 0 )
 shape = SubResource( 2 )
 
 [node name="Dialogue" type="Spatial" parent="."]
