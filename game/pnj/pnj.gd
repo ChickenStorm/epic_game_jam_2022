@@ -39,5 +39,8 @@ func _on_area_exited(_element):
 func _unhandled_input(event):
 	if Input.is_action_pressed("action_interact") && can_be_interacted:
 		#$Dialogue/Sprite3D.visible = true
-		get_tree().call_group("dialog", "show_dialog", text, choice, self)
-			
+		get_tree().call_group("dialoge", "show_dialoge", text, choice, self)
+
+
+func call_back(index):
+	pass

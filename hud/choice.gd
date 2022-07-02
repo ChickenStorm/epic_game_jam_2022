@@ -15,13 +15,11 @@ func _ready():
 
 
 func update_text():
-	print(label)
 	if label != null:
 		label.text = text
 
 
 func update_choosed():
-	print(label)
 	if label2 != null:
 		label2.visible = choosed
 
