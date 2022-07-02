@@ -36,12 +36,12 @@ func show_dialoge(string, choice_text, pnj):
 	_target_pnj = pnj
 	self.visible = true
 	show_dialoge = true
-	label.text = string
+	label.text = string.get("dialogue")
 	var first = true
 	for text in choice_text:
 		var node = CHOICE_CLASS.instance()
 		choice.add_child(node)
-		node.text = text
+		node.text = text.get("q")
 		if first == true:
 			first = false
 			node.choosed = true
@@ -51,6 +51,7 @@ func next_dialoge():
 	self.visible = false
 	show_dialoge = false
 	_target_pnj.lock_player_control(false)
+	if choice.get_child_count() > 0:
+		_target_pnj.call_back(choice_index)
 	for node in choice.get_children():
 		node.queue_free()
-	_target_pnj.call_back(choice_index)

@@ -2,8 +2,10 @@ tool
 class_name Pnj
 extends Spatial
 
-export(String) var text setget set_text 
-export(Array, String) var choice
+export(Dictionary) var text setget set_text 
+export(Dictionary) var choice
+
+var current_dialogue_step = null
 
 onready var dialogue_area : Area = $DialogueCollisonArea
 onready var watch_player_area : Area = $WatchPlayerZone
@@ -45,8 +47,7 @@ func _on_area_exited(_element):
 func _unhandled_input(event):
 	if Input.is_action_pressed("action_interact") && can_be_interacted:
 		#$Dialogue/Sprite3D.visible = true
-		get_tree().call_group("dialoge", "show_dialoge", text, choice, self)
-		lock_player_control()
+		show_dialogue()
 
 
 func lock_player_control(Bool : bool = true):
@@ -55,5 +56,14 @@ func lock_player_control(Bool : bool = true):
 		if parent.is_in_group("player") and parent.state_machine:
 			parent.state_machine._do_input_delegation = ! Bool
 
+
+func show_dialogue():
+	if current_dialogue_step == null:
+		current_dialogue_step = text
+	choice = current_dialogue_step.get("choice", [])
+	get_tree().call_group("dialoge", "show_dialoge", current_dialogue_step, choice, self)
+	lock_player_control()
+
 func call_back(index):
-	pass
+	current_dialogue_step = current_dialogue_step["choice"][index]
+	show_dialogue()

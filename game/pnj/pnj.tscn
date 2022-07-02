@@ -15,6 +15,10 @@ viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
 
 [node name="Pnj" type="Spatial" groups=["pnj"]]
 script = ExtResource( 1 )
+text = {
+}
+choice = {
+}
 
 [node name="WatchPlayerZone" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.847504, 0 )
