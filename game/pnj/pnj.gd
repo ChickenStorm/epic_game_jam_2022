@@ -67,3 +67,7 @@ func show_dialogue():
 func call_back(index):
 	current_dialogue_step = current_dialogue_step["choice"][index]
 	show_dialogue()
+
+
+func reset_dialogue():
+	current_dialogue_step = null

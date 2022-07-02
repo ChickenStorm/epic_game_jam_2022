@@ -53,5 +53,7 @@ func next_dialoge():
 	_target_pnj.lock_player_control(false)
 	if choice.get_child_count() > 0:
 		_target_pnj.call_back(choice_index)
+	else:
+		_target_pnj.reset_dialogue()
 	for node in choice.get_children():
 		node.queue_free()
