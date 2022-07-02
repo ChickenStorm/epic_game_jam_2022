@@ -1,8 +1,5 @@
 extends PlayerState
 
-const TEXTURE_FRONT = preload("res://assets/Sprite_Persos/Cat_Front.png")
-const TEXTURE_BACK = preload("res://assets/Sprite_Persos/Cat_back.png")
-
 export var max_angle = 47
 export var gravity = 1.5
 export var jump_impulse = 25
@@ -24,11 +21,6 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	var input_direction: = get_input_direction()
-	var dot_res = input_direction.dot(Vector3(0,0,1))
-	if dot_res > 0:
-		$"../../Sprite3D".texture = TEXTURE_FRONT
-	elif dot_res < 0:
-		$"../../Sprite3D".texture = TEXTURE_BACK
 
 	var forwards: Vector3 = player.camera.global_transform.basis.z * input_direction.z
 	var right: Vector3 = player.camera.global_transform.basis.x * input_direction.x

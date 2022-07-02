@@ -127,9 +127,17 @@ material/0 = SubResource( 10 )
 
 [node name="Monkey" parent="playground" instance=ExtResource( 7 )]
 transform = Transform( 0.845346, 0, 0.53422, 0, 1, 0, -0.53422, 0, 0.845346, 0, 4.33669, -17.0236 )
+text = {
+}
+choice = {
+}
 
 [node name="Bunny" parent="playground" instance=ExtResource( 6 )]
 transform = Transform( 0.537638, 0, 0.843176, 0, 1, 0, -0.843176, 0, 0.537638, 0, 0, 11.8003 )
+text = {
+}
+choice = {
+}
 
 [node name="World" type="StaticBody" parent="."]
 

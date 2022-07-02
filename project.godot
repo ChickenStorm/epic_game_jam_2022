@@ -195,7 +195,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Epic game jam 2022"
-run/main_scene="res://game/Game.tscn"
+run/main_scene="res://game/Game2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
