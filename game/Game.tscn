@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Game.gd" type="Script" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://game/world_change_wall.gd" type="Script" id=11]
 [ext_resource path="res://game/door/door.gd" type="Script" id=12]
 [ext_resource path="res://game/pnj/pnj_1.gd" type="Script" id=13]
+[ext_resource path="res://.import/Under The Mask (dirty) - EGJ Soundtrack.wav-4c61f34217ef6804a044677fe1bdfeac.sample" type="AudioStream" id=14]
+[ext_resource path="res://.import/Under The Mask - EGJ Soundtrack.wav-0c81edaeb558f53b2de2a9e95410e248.sample" type="AudioStream" id=15]
+[ext_resource path="res://game/Day.gd" type="Script" id=16]
+[ext_resource path="res://game/Night.gd" type="Script" id=17]
 
 [sub_resource type="StreamTexture" id=23]
 flags = 4
@@ -119,6 +123,8 @@ material/0 = SubResource( 15 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.43709 )
 visible = false
 text = {
+}
+choice = {
 }
 
 [node name="Night" type="Sprite3D" parent="general/Pnj1/Pnj2" groups=["DownWorld"]]
@@ -556,3 +562,15 @@ size_flags_vertical = 6
 text = "Appuyez sur C pour changer de monde"
 align = 1
 valign = 1
+
+[node name="music" type="Node" parent="."]
+
+[node name="Night" type="AudioStreamPlayer" parent="music" groups=["world_change"]]
+stream = ExtResource( 14 )
+autoplay = true
+script = ExtResource( 17 )
+
+[node name="Day" type="AudioStreamPlayer" parent="music" groups=["world_change"]]
+stream = ExtResource( 15 )
+autoplay = true
+script = ExtResource( 16 )
