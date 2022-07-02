@@ -11,6 +11,10 @@ viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
 [node name="Pnj" type="Spatial" groups=["pnj"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703403, 1.43919, -5.03336 )
 script = ExtResource( 1 )
+text = {
+}
+choice = {
+}
 
 [node name="DialogueCollisonArea" type="Area" parent="."]
 collision_layer = 32
