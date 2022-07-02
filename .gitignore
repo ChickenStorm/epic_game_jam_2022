@@ -19,3 +19,6 @@ compile/*/config/config.cfg
 compile/*/*.pck.tmp
 compile/*/config.cfg
 config.cfg
+assets/Soundtracks/desktop.ini
+assets/Soundtracks/Under The Mask - EGJ Soundtrack.wav
+assets/Soundtracks/Under The Mask (dirty) - EGJ Soundtrack.wav

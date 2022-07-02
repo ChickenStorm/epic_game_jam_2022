@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game/pnj/pnj.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/main/charact_model.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/pnj/Elephant.gd" type="Script" id=3]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Elephant.png-ade0d8d8e0317789dc609a5346e60a2c.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/Elephant.png-ade0d8d8e0317789dc609a5346e60a2c.stex"
+
+[node name="Elephant" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+text = {
+}
+choice = {
+}
+
+[node name="charact_model" parent="Mannequiny" index="0" instance=ExtResource( 2 )]
+texture_back = SubResource( 1 )
+texture_front = SubResource( 2 )

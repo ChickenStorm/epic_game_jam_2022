@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Under The Mask (dirty) - EGJ Soundtrack.wav-4c61f34217ef6804a044677fe1bdfeac.sample"
+
+[deps]
+
+source_file="res://assets/Soundtracks/Under The Mask (dirty) - EGJ Soundtrack.wav"
+dest_files=[ "res://.import/Under The Mask (dirty) - EGJ Soundtrack.wav-4c61f34217ef6804a044677fe1bdfeac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

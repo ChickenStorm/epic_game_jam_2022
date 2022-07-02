@@ -55,11 +55,11 @@ uv1_triplanar = true
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0, 0.368627, 1, 1 )
 
-[sub_resource type="PanoramaSky" id=14]
+[sub_resource type="PanoramaSky" id=16]
 
 [sub_resource type="Environment" id=7]
 background_mode = 1
-background_sky = SubResource( 14 )
+background_sky = SubResource( 16 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="Game3D" type="Node"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://game/pnj/pnj.gd" type="Script" id=1]
 [ext_resource path="res://game/pnj/watch_player.gd" type="Script" id=2]
@@ -9,9 +9,6 @@ height = 10.0
 
 [sub_resource type="CylinderShape" id=2]
 radius = 4.0
-
-[sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
 
 [node name="Pnj" type="Spatial" groups=["pnj"]]
 script = ExtResource( 1 )
@@ -33,31 +30,6 @@ collision_mask = 8
 
 [node name="CollisionShape" type="CollisionShape" parent="DialogueCollisonArea"]
 shape = SubResource( 2 )
-
-[node name="Dialogue" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92315, 0 )
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="Dialogue"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-flip_v = true
-texture = SubResource( 3 )
-
-[node name="Viewport" type="Viewport" parent="Dialogue/Sprite3D"]
-size = Vector2( 200, 40 )
-
-[node name="ColorRect" type="ColorRect" parent="Dialogue/Sprite3D/Viewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0, 0, 0, 1 )
-
-[node name="Label" type="Label" parent="Dialogue/Sprite3D/Viewport/ColorRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-align = 1
-valign = 1
 
 [node name="Mannequiny" type="Spatial" parent="."]
 script = ExtResource( 2 )

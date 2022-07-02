@@ -1,5 +1,8 @@
 extends Pnj
 
+const TEXT_DAY = preload("res://assets/Sprite_Persos/Rabbits.png")
+const TEXT_NIGHT = preload("res://assets/Sprite_Persos/Rabbits_Night.png")
+
 var has_talk_day = false
 var has_talk_night = false
 
@@ -20,32 +23,36 @@ func show_dialogue():
 func world_change(is_up_p):
 	is_up = is_up_p
 	if is_up:
-		text = {
-			"dialogue": "Dis-moi, toi qui as l'air malin, j'ai une énigme pour toi : tu sais quel est le point commun entre un jongleur et un facteur ?",
+		$Mannequiny/charact_model.texture_front = TEXT_DAY
+		self.text = {
+			"dialogue" : "Peut-être que j'aurais jamais dû essayer d'ouvrir la Boîte",
 			"choice" : [
 				{
-					"q": "non ?",
-					"dialogue": "Ils ont tous les deux besoin d'adresse, réfléchis-y, mon gars… Ou pas",
+					"q": "Quelle boîte ?",
+					"dialogue": "T'es pas d'ici, toi, hein ?",
 					"choice": [
 						{
-							"q": "Super interaction.",
-							"dialogue": "...",
+							"q" : "Je sais pas, c'est où ici ?",
+							"dialogue" : "C'est le Blanc/Noir."
+						},
+						{
+							"q": "Je crois pas",
+							"dialogue": "Ouais, ben tu reviendras quand tu sauras… ou pas."
 						}
-					],
+					]
 				},
 				{
-					"q": "ils riment ?",
-					"dialogue": "C'est toi qui rimes… Ou pas !",
-					"choice": [
-						{
-							"q": "Super interaction.",
-							"dialogue": "...",
-						}
-					],
-				}
+					"q":"Qu'est-ce qui vous est arrivé ?",
+					"dialogue" : "On fait tous nos choix, aucun moyen de savoir s'ils sont bons."
+				},
+				{
+					"q":"Essayer ? Ça n'a pas marché ?",
+					"dialogue": "Si on te demande, tiu diras que t'en sais rien."
+					},
 			]
 		}
 	else:
+		$Mannequiny/charact_model.texture_front = TEXT_NIGHT
 		if has_talk_day:
 			text = {
 				"dialogue": "Tu sais, mon frère c'est pas vraiment un monstre social, il est plutôt introverti, c'est probablement pour ça qu'il est assez aggressif et laconique.",
@@ -138,10 +145,10 @@ func world_change(is_up_p):
 				]
 			}
 
-{
-	"q": "",
-	"dialogue": "",
-	"choice": [
-		
-	],
-}
+#{
+#	"q": "",
+#	"dialogue": "",
+#	"choice": [
+#
+#	],
+#}

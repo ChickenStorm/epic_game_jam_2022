@@ -1,33 +1,45 @@
 extends Pnj
 
+var is_up = true
+
+
 func _ready():
 	._ready()
-	self.text = {
-			"dialogue" : "Peut-être que j'aurais jamais dû essayer d'ouvrir la Boîte",
+	world_change(is_up)
+
+
+func world_change(is_up_p):
+	is_up = is_up_p
+	if is_up:
+		text = {
+			"dialogue": "Dis-moi, toi qui as l'air malin, j'ai une énigme pour toi : tu sais quel est le point commun entre un jongleur et un facteur ?",
 			"choice" : [
 				{
-					"q": "Quelle boîte ?",
-					"dialogue": "T'es pas d'ici, toi, hein ?",
+					"q": "non ?",
+					"dialogue": "Ils ont tous les deux besoin d'adresse, réfléchis-y, mon gars… Ou pas",
 					"choice": [
 						{
-							"q" : "Je sais pas, c'est où ici ?",
-							"dialogue" : "C'est le Blanc/Noir."
-						},
-						{
-							"q": "Je crois pas",
-							"dialogue": "Ouais, ben tu reviendras quand tu sauras… ou pas."
+							"q": "Super interaction.",
+							"dialogue": "...",
 						}
-					]
+					],
 				},
 				{
-					"q":"Qu'est-ce qui vous est arrivé ?",
-					"dialogue" : "On fait tous nos choix, aucun moyen de savoir s'ils sont bons."
-				},
-				{
-					"q":"Essayer ? Ça n'a pas marché ?",
-					"dialogue": "Si on te demande, tiu diras que t'en sais rien."
-					},
+					"q": "ils riment ?",
+					"dialogue": "C'est toi qui rimes… Ou pas !",
+					"choice": [
+						{
+							"q": "Super interaction.",
+							"dialogue": "...",
+						}
+					],
+				}
 			]
-	}
-	
+		}
+	else:
+		text = {
+			"dialogue" : "..."
+		}
+
+
 

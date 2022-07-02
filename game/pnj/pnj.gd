@@ -11,12 +11,14 @@ onready var dialogue_area : Area = $DialogueCollisonArea
 onready var watch_player_area : Area = $WatchPlayerZone
 onready var mannequiny = $Mannequiny
 
+
 var can_be_interacted = false
 
 
 func _ready():
 	#$Dialogue/Sprite3D.visible = false
 	#can_be_interacted = false
+	
 	update_text()
 	dialogue_area.connect("area_entered", self, "_on_area_entered")
 	dialogue_area.connect("area_exited", self,  "_on_area_exited")
