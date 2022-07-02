@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://game/pnj/pnj.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture/prototype/Orange/texture_01.png" type="Texture" id=2]
+
+[sub_resource type="CylinderShape" id=6]
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 2 )
+uv1_triplanar = true
+
+[sub_resource type="CylinderShape" id=2]
+radius = 8.0
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
+
+[node name="Pnj" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703403, 1.43919, -5.03336 )
+script = ExtResource( 1 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+
+[node name="StaticBody" type="CollisionShape" parent="StaticBody2"]
+shape = SubResource( 6 )
+
+[node name="PnjShape" type="MeshInstance" parent="StaticBody2/StaticBody"]
+mesh = SubResource( 4 )
+skeleton = NodePath("")
+material/0 = SubResource( 5 )
+
+[node name="DialogueCollisonArea" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape" type="CollisionShape" parent="DialogueCollisonArea"]
+shape = SubResource( 2 )
+
+[node name="Dialogue" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92315, 0 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Dialogue"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+flip_v = true
+texture = SubResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="Dialogue/Sprite3D"]
+size = Vector2( 200, 40 )
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue/Sprite3D/Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="Dialogue/Sprite3D/Viewport/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+align = 1
+valign = 1

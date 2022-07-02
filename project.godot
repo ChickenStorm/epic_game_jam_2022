@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/player/PlayerState.gd"
 }, {
+"base": "Spatial",
+"class": "Pnj",
+"language": "GDScript",
+"path": "res://game/pnj/pnj.gd"
+}, {
 "base": "PanelContainer",
 "class": "SelectablePanelContainer",
 "language": "GDScript",
@@ -158,6 +163,7 @@ _global_script_class_icons={
 "OptionKeyBinding": "",
 "Player": "",
 "PlayerState": "",
+"Pnj": "",
 "SelectablePanelContainer": "res://resources/editor/selectable_container.svg",
 "SpinBoxImediateUpdate": "res://resources/editor/spin_box_imediate_update.svg",
 "State": "",
@@ -171,7 +177,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Epic game jam 2022"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://game/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
