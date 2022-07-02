@@ -10,6 +10,7 @@ onready var camera: Spatial = $HRot
 onready var skin: Mannequiny = $Mannequiny
 onready var state_machine: StateMachine = $StateMachine
 
+var inventory
 
 
 func _get_configuration_warning() -> String:

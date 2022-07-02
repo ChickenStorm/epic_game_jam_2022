@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Game.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/texture/prototype/Dark/texture_13.png" type="Texture" id=4]
 [ext_resource path="res://assets/texture/prototype/Orange/texture_01.png" type="Texture" id=5]
 [ext_resource path="res://game/pnj/pnj.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/dialogue_hud.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 5, 5, 1 )
@@ -35,7 +36,7 @@ albedo_color = Color( 0, 0.368627, 1, 1 )
 
 [sub_resource type="Environment" id=7]
 
-[node name="Game" type="Node"]
+[node name="Game3D" type="Node"]
 script = ExtResource( 2 )
 
 [node name="playground" type="Spatial" parent="."]
@@ -101,6 +102,7 @@ material/0 = SubResource( 10 )
 [node name="Pnj" parent="playground" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.703403, 1.43919, 10.9037 )
 text = "test test"
+choice = [ "C1", "C2" ]
 
 [node name="World" type="StaticBody" parent="."]
 
@@ -245,3 +247,54 @@ margin_top = 162.0
 margin_right = 253.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 120, 50 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dialogue" type="Control" parent="CanvasLayer/Main" groups=["dialog"]]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.7
+anchor_right = 0.8
+anchor_bottom = 0.9
+script = ExtResource( 7 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/Main/Dialogue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Main/Dialogue"]
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 761.0
+margin_bottom = 137.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Main/Dialogue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainText" type="VBoxContainer" parent="CanvasLayer/Main/Dialogue/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 761.0
+margin_bottom = 137.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Dialogue/PanelContainer/MainText"]
+margin_right = 754.0
+margin_bottom = 98.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Main/Dialogue/PanelContainer/MainText/HBoxContainer"]
+margin_top = 42.0
+margin_bottom = 56.0
+align = 1
+valign = 1
+
+[node name="Choice" type="HBoxContainer" parent="CanvasLayer/Main/Dialogue/PanelContainer/MainText"]
+margin_right = 40.0
+margin_bottom = 40.0
+alignment = 1

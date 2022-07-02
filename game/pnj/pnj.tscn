@@ -17,7 +17,7 @@ radius = 8.0
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Dialogue/Sprite3D/Viewport")
 
-[node name="Pnj" type="Spatial"]
+[node name="Pnj" type="Spatial" groups=["pnj"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703403, 1.43919, -5.03336 )
 script = ExtResource( 1 )
 
@@ -40,6 +40,7 @@ shape = SubResource( 2 )
 
 [node name="Dialogue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92315, 0 )
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Dialogue"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )

@@ -3,12 +3,13 @@ class_name Pnj
 extends Spatial
 
 export(String) var text setget set_text 
+export(Array, String) var choice
 
 var can_be_interacted = false
 
 
 func _ready():
-	$Dialogue/Sprite3D.visible = false
+	#$Dialogue/Sprite3D.visible = false
 	#can_be_interacted = false
 	update_text()
 	$DialogueCollisonArea.connect("area_entered", self, "_on_area_entered")
@@ -16,7 +17,8 @@ func _ready():
 
 
 func update_text():
-	$Dialogue/Sprite3D/Viewport/ColorRect/Label.text = text
+	pass
+	#$Dialogue/Sprite3D/Viewport/ColorRect/Label.text = text
 
 
 func set_text(new_text):
@@ -31,9 +33,11 @@ func _on_area_entered(_element):
 
 func _on_area_exited(_element):
 	can_be_interacted = false
-	$Dialogue/Sprite3D.visible = false
+	#Dialogue/Sprite3D.visible = false
 
 
 func _unhandled_input(event):
 	if Input.is_action_pressed("action_interact") && can_be_interacted:
-		$Dialogue/Sprite3D.visible = true
+		#$Dialogue/Sprite3D.visible = true
+		get_tree().call_group("dialog", "show_dialog", text, choice, self)
+			
