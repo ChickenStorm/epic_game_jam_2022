@@ -6,6 +6,8 @@ export(String) var text setget set_text
 export(Array, String) var choice
 
 onready var dialogue_area : Area = $DialogueCollisonArea
+onready var watch_player_area : Area = $WatchPlayerZone
+onready var mannequiny = $Mannequiny
 
 var can_be_interacted = false
 
@@ -16,6 +18,8 @@ func _ready():
 	update_text()
 	dialogue_area.connect("area_entered", self, "_on_area_entered")
 	dialogue_area.connect("area_exited", self,  "_on_area_exited")
+	watch_player_area.connect("body_entered", mannequiny, "_on_body_entered")
+	watch_player_area.connect("body_exited", mannequiny,  "_on_body_exited")
 
 
 func update_text():

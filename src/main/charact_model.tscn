@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/main/charact_model.gd" type="Script" id=1]
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 3, 3 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+params_cull_mode = 1
+
+[sub_resource type="SpatialMaterial" id=6]
+next_pass = SubResource( 7 )
+flags_transparent = true
+
+[node name="charact_model" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49157, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )
+script = ExtResource( 1 )

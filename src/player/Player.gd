@@ -10,6 +10,7 @@ onready var camera: Spatial = $HRot
 onready var skin: Mannequiny = $Mannequiny
 onready var state_machine: StateMachine = $StateMachine
 onready var area = $Area
+onready var focus_point = $FocusPoint
 
 var inventory = {}
 
