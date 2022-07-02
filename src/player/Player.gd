@@ -9,8 +9,20 @@ export(bool) var up_world = true setget set_up_world
 onready var camera: Spatial = $HRot
 onready var skin: Mannequiny = $Mannequiny
 onready var state_machine: StateMachine = $StateMachine
+onready var area = $Area
 
-var inventory
+var inventory = {}
+
+func _ready():
+	area.connect("area_entered", self, "_on_area_entered")
+	area.connect("area_exited", self, "_on_area_exited")
+
+func _on_area_entered(_ellement):
+	$"../CanvasLayer/Main/InteractionBox".visible = true
+
+
+func _on_area_exited(_ellement):
+	$"../CanvasLayer/Main/InteractionBox".visible = false
 
 
 func _get_configuration_warning() -> String:
@@ -29,10 +41,14 @@ func set_up_world(new_bool):
 		for node in get_tree().get_nodes_in_group("DownWorld"):
 			node.visible = false
 		for node in get_tree().get_nodes_in_group("UpWorld"):
-			node.visible = true 
+			node.visible = true
 	else:
 		for node in get_tree().get_nodes_in_group("UpWorld"):
 			node.visible = false
 		for node in get_tree().get_nodes_in_group("DownWorld"):
-			node.visible = true 
+			node.visible = true
 	 # TODO call a method on each ellement, might be to heavy ?
+
+
+func pickup(object_name):
+	inventory[object_name] = true

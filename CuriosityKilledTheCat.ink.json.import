@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+path="res://.import/CuriosityKilledTheCat.ink.json-94dfc9852ae7cdc146af33424797a0d0.res"
+
+[deps]
+
+source_file="res://CuriosityKilledTheCat.ink.json"
+dest_files=[ "res://.import/CuriosityKilledTheCat.ink.json-94dfc9852ae7cdc146af33424797a0d0.res" ]
+
+[params]
+
+compress=true

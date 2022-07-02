@@ -8,6 +8,8 @@ export var initial_state := NodePath()
 onready var state: State = get_node(initial_state) setget set_state
 onready var _state_name := state.name
 
+var _do_input_delegation = true
+
 
 #-----------------------------------------------------------------------------------------------
 #	Initialisation
@@ -27,7 +29,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	state.unhandled_input(event)
+	if _do_input_delegation:
+		state.unhandled_input(event)
 
 
 func _process(delta: float) -> void:

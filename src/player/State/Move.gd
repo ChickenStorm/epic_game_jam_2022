@@ -69,12 +69,12 @@ func exit() -> void:
 #	Fonction d'interprétation des inputs
 
 
-static func get_input_direction() -> Vector3:
+func get_input_direction() -> Vector3:
 	return Vector3(
 			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 			0,
 			Input.get_action_strength("move_back") - Input.get_action_strength("move_front")
-		)
+		)if _state_machine._do_input_delegation else Vector3.ZERO
 
 
 func calculate_velocity(
